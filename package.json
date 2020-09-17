@@ -2,7 +2,7 @@
   "scripts": {
     "build_ORIG": "webpack",
     "serve_ORIG": "webpack-dev-server",
-    "build": "webpack-dev-server"
+    "build": "curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh && wasm-pack build && webpack-dev-server"
   },
   "devDependencies": {
     "@wasm-tool/wasm-pack-plugin": "1.0.1",
