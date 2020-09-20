@@ -50,7 +50,7 @@ steps:
 
 - task: AzureFileCopy@4
   inputs:
-    SourcePath: '$(Build.ArtifactStagingDirectory)'
+    SourcePath: '$(Build.SourcesDirectory)/dist'
     azureSubscription: 'Azure subscription 1 (e1d33e78-07f6-4df4-b39d-979bad805079)'
     Destination: 'AzureBlob'
     storage: 'wasmstaticwebapp'
