@@ -31,38 +31,11 @@ steps:
     script: 'npm run build'
   displayName: 'npm run build'
 
-- task: CmdLine@2
-  inputs:
-    script: 'dir'
-
 - task: AzureFileCopy@4
   inputs:
-    SourcePath: '$(Build.SourcesDirectory)\dist'
+    SourcePath: '$(Build.SourcesDirectory)\dist\*'
     azureSubscription: 'Azure subscription 1 (e1d33e78-07f6-4df4-b39d-979bad805079)'
     Destination: 'AzureBlob'
     storage: 'wasmstaticwebapp'
     ContainerName: '$web'
   displayName: 'Copy files to Azure'
-  
-#- task: CopyFiles@2
-#  inputs:
-#    SourceFolder: '$(Build.SourcesDirectory)/dist'
-#    Contents: '**'
-#    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-#  displayName: 'Copy files from dist to ArtifactStagingDirectory'
-
-#- task: ArchiveFiles@2
-#  inputs:
-#    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-#    includeRootFolder: true
-#    archiveType: 'zip'
-#    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-#    replaceExistingArchive: true
-#  displayName: 'Archive artifact'
-
-#- task: PublishBuildArtifacts@1
-#  inputs:
-#    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-#    ArtifactName: 'wasm-static-web-app'
-#    publishLocation: 'Container'
-#  displayName: 'Publish artifact'
