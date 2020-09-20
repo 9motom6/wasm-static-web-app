@@ -20,13 +20,13 @@ steps:
       curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
       wasm-pack build
   displayName: 'Instal rustwasm and wasm-pack build'
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
-- script: |
-    dir $(Build.SourcesDirectory)
-  displayName: 'Show Build.SourcesDirectory contents'
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      npm install
+      npm build
+  displayName: 'npm install npm build'
 
 - task: AzureFileCopy@4
   inputs:
