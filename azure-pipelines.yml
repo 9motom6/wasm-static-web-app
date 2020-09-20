@@ -27,7 +27,9 @@ steps:
       npm install
       npm build
   displayName: 'npm install npm build'
-
+- task: CmdLine@2
+  inputs:
+    script: 'dir'
 - task: AzureFileCopy@4
   inputs:
     SourcePath: '$(Build.SourcesDirectory)\dist'
