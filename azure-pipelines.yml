@@ -24,7 +24,10 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
-  
+- script: |
+    tree $(Build.SourcesDirectory) /F
+  displayName: 'Show Build.SourcesDirectory contents'
+
 - task: AzureFileCopy@4
   inputs:
     SourcePath: '$(Build.SourcesDirectory)\dist'
