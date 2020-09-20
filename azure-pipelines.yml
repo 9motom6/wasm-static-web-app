@@ -25,7 +25,7 @@ steps:
   inputs:
     script: |
       npm install
-      npm build
+      npm run build
   displayName: 'npm install npm build'
 - task: CmdLine@2
   inputs:
