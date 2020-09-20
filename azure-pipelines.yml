@@ -23,13 +23,18 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: |
-      npm install
-      npm run build
-  displayName: 'npm install npm build'
+    script: 'npm install'
+  displayName: 'npm install'
+  
+- task: CmdLine@2
+  inputs:
+    script: 'npm run build'
+  displayName: 'npm run build'
+
 - task: CmdLine@2
   inputs:
     script: 'dir'
+
 - task: AzureFileCopy@4
   inputs:
     SourcePath: '$(Build.SourcesDirectory)\dist'
